@@ -1,0 +1,51 @@
+
+source! /home/ryan/.pentadactyl/colors/ubuntu.penta
+
+set go=CMls
+sidebabr Scrapbook
+
+
+
+set nextpattern=\s*下一页|下一张|下页\s*,\bnext\b,^>$,^(>>|››|»)$,^(>|»),(>|»)$,\bmore\b
+set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^(<<|‹‹|«)$,^(<|«),(<|«)$
+
+" prevent d on the last tab from closing the window
+set! browser.tabs.closeWindowWithLastTab=false
+
+" prompt recomment list 
+set complete=search,location,file,history
+" max items in recomment list
+set maxitems=10
+
+set editor='gvim -f'
+
+" using ';' to enter commang line mode
+map ; : 
+
+nmap -builtin -silent <C-m> :tabopen about:mybookmarks<CR>
+
+command -nargs=1 setColumns js dactyl.plugins.column_view.APOGmulticolumn.setColumns(<args>)
+nmap -builtin s -count -ex setColumns <count>
+
+nmap -builtin j 10j
+nmap -builtin k 10k
+nmap -builtin h 20h
+nmap -builtin l 20l
+
+" swap y/Y, y: yank url, Y: yank selected content
+nmap -builtin y Y
+nmap -builtin Y y
+
+nmap <F3> <C-p>
+nmap <F4> <C-n>
+imap <F3> <C-p>
+imap <F4> <C-n>
+
+map -builtin <C-c> <Esc>
+
+"cmap <C-c> <Esc>
+imap -builtin <C-n> <ESC><C-n>
+imap -builtin <C-p> <ESC><C-p>
+imap -builtin <C-o> <ESC><C-o>
+
+set hintkeys=aoeuisnthd
