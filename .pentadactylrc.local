@@ -1,7 +1,7 @@
 
-source! /home/ryan/.pentadactyl/colors/ubuntu.penta
+source! /home/yang/.pentadactyl/colors/ubuntu.penta
 
-set go=CMls
+set go=CMrsN
 
 set nextpattern=\s*下一页|下一张|下页\s*,\bnext\b,^>$,^(>>|››|»)$,^(>|»),(>|»)$,\bmore\b
 set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^(<<|‹‹|«)$,^(<|«),(<|«)$
@@ -10,11 +10,15 @@ set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^(<<|
 set! browser.tabs.closeWindowWithLastTab=false
 
 " prompt recomment list 
-set complete=search,location,file,history
+set complete=search,bookmark
 " max items in recomment list
 set maxitems=10
 
 set editor='gvim -f'
+
+set defsearch=g
+
+set showmode=!menu,caret,output_multiline,!normal,base,operator
 
 " using ';' to enter commang line mode
 map ; : 
@@ -29,11 +33,18 @@ nmap -builtin l 20l
 " swap y/Y, y: yank url, Y: yank selected content
 nmap -builtin y Y
 nmap -builtin Y y
+nmap -builtin d D
+nmap -builtin D d
 
-nmap <F3> <C-p>
-nmap <F4> <C-n>
-imap <F3> <C-p>
-imap <F4> <C-n>
+nmap , <C-p>
+nmap . <C-n>
+nmap <C-k> <C-p>
+nmap <C-j> <C-n>
+nmap <C-u> <C-6>
+" imap , <C-p>
+" imap . <C-n>
+" imap <C-k> <C-p> " conflict with kill line
+" imap <C-j> <C-n>
 
 imap <C-c> <Esc>
 nmap <C-c> <Esc>:stop<CR>
